@@ -232,11 +232,11 @@ const agenciesList = ["BCIT", "Camosun College", "Capilano University", "Coast M
 // CONCATENATED MODULE: ./src/data/params.js
 const params = {
   appId: 'app',
-  agencyId: 'dp-57',
+  agencyId: 'dp-63',
   // find in the data page of your cloudtables dataset
   clientId: 'pssdb-v12',
   // unique for each dataset
-  cloudTableId: '2e623496-3cb7-11f0-a98a-738f477aee66',
+  cloudTableId: 'a928b8fa-3ffd-11f0-a19b-cb99422b5336',
   // find in embed tab
 
   // below here probably won’t change 
