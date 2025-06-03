@@ -2,6 +2,8 @@
 // https://finmavis.dev/blog/webpack-configuration-step-by-step
 
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv').config({ path: './.env' });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -197,6 +199,9 @@ module.exports = {
 		}
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.API_KEY_CLOUDTABLES': JSON.stringify(dotenv.parsed.API_KEY_CLOUDTABLES)
+		}),
 		// clean the build directory
 		new CleanWebpackPlugin(),
 		new CompressionPlugin({

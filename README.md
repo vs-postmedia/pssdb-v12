@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PSSDB v12
 Twelfth edition of the Vancouver Sun’s public sector salary database. Powered by CloudTables.
 

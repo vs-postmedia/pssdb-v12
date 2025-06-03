@@ -2,6 +2,8 @@
 // https://finmavis.dev/blog/webpack-configuration-step-by-step
 
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv').config({ path: './.env' });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -157,6 +159,9 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.API_KEY_CLOUDTABLES': JSON.stringify(dotenv.parsed.API_KEY_CLOUDTABLES)
+		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(ROOT_DIR, 'src/index.html'),
 			filename: 'index.html',

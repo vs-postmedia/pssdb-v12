@@ -26,6 +26,10 @@ let serverPool;
 
 // JS FUNCTIONS
 const init = async () => {
+    // add api key to params
+    params.apiKey = process.env.API_KEY_CLOUDTABLES;
+    console.log(params)
+
     // assign server - HACK!!! DISABLE WHEN TRAFFIC DROPS
     // serverPool = params.serverPool;
     // server = await assignServer(serverPool);
