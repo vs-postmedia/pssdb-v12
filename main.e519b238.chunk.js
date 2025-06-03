@@ -246,8 +246,7 @@ const params = {
   // should probably have 3-4 servers in the pool...
   serverPool: ['vs-postmedia-a.cloudtables.me'
   // 'vs-postmedia-b.cloudtables.me'
-  ],
-  apiKey: 'kcZqiHL7MiUCi1waLZYN1vkz' // read-only    
+  ]
 };
 /* harmony default export */ var data_params = (params);
 // EXTERNAL MODULE: ./src/css/normalize.css
@@ -306,6 +305,10 @@ let serverPool;
 
 // JS FUNCTIONS
 const init = async () => {
+  // add api key to params
+  data_params.apiKey = "kcZqiHL7MiUCi1waLZYN1vkz";
+  console.log(data_params);
+
   // assign server - HACK!!! DISABLE WHEN TRAFFIC DROPS
   // serverPool = params.serverPool;
   // server = await assignServer(serverPool);
