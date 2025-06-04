@@ -49,7 +49,7 @@ const agenciesList = [
 "Knowledge Network",
 "Legal Aid B.C.",
 "B.C. Pavilion Corporation",
-"PowerEx",
+"Powerex",
 "PowerTech",
 "Royal B.C. Museum",
 "Skilled Trades B.C.",
@@ -60,7 +60,7 @@ const agenciesList = [
 "Vancouver Coastal Health",
 "Fraser Health",
 "Interior Health",
-"PHSA",
+"Provincial Health Services Authority (PHSA)",
 "Northern Health",
 "Island Health",
 "City of Pitt Meadows",
@@ -109,7 +109,7 @@ const agenciesList = [
 "Ridge-Meadows school district",
 "Surrey school district",
 "Vancouver school district",
-"West Vancouver school distric"
+"West Vancouver school district"
 ];
 
 export default agenciesList;
