@@ -311,7 +311,7 @@ const init = async () => {
   // assign server - HACK!!! DISABLE WHEN TRAFFIC DROPS
   src_serverPool = data_params.serverPool;
   // server = await assignServer(serverPool);
-  src_server = data_params.serverPool[1];
+  src_server = data_params.serverPool[0];
 
   // create dynamic list of options for agency select tag
   createAgencyComboBox(agencies);
