@@ -227,7 +227,7 @@ function setupAgencyCombobox(combobox) {
 }
 /* harmony default export */ var Combobox = (setupAgencyCombobox);
 // CONCATENATED MODULE: ./src/data/agencies.js
-const agenciesList = ["BCIT", "Camosun College", "Capilano University", "Coast Mountain College", "College of the Rockies", "College of New Caledonia", "Douglas College", "Emily Carr University", "Justice Institute of B.C.", "Kwantlen Polytechnic University", "Langara College", "North Island College", "Northern Lights College", "Okanagan College", "Selkirk College", "Simon Fraser University (SFU)", "Thompson Rivers University", "University of B.C. (UBC)", "University of the Fraser Valley", "University of Northern B.C.", "University of Victoria", "Vancouver Community College (VCC)", "Vancouver Island University", "B.C. Assessment", "B.C. Council for International Education", "B.C. Energy Regulator", "B.C. Ferries", "B.C. Financial Services Authority", "B.C. Housing", "B.C. Hydro", "B.C. Infrastructure Benefits", "B.C. Liquor Distribution Branch", "B.C. Lottery Corporation", "B.C. Securities Commission", "B.C. Transit", "B.C. Utilities Commission", "Columbia Basin Trust", "Community Living B.C.", "Destination B.C.", "First Peoples' Cultural Council", "Forest Enhancement Society of B.C.", "Forestry Innovation Investment", "ICBC", "InBC Investment Corp.", "Infrastructure B.C.", "Insurance Council of B.C.", "Innovate B.C.", "Knowledge Network", "Legal Aid B.C.", "B.C. Pavilion Corporation", "Powerex", "PowerTech", "Royal B.C. Museum", "Skilled Trades B.C.", "Technical Safety B.C.", "Transportation Investment Corporation", "TransLink", "Worksafe B.C.", "Vancouver Coastal Health", "Fraser Health", "Interior Health", "Provincial Health Services Authority (PHSA)", "Northern Health", "Island Health", "City of Pitt Meadows", "District of West Vancouver", "District of North Vancouver", "District of Oak Bay", "City of Port Moody", "District of Saanich", "City of Surrey", "City of Delta", "Langley City", "Langley Township", "City of Maple Ridge", "City of New Westminster", "City of White Rock", "Village of Anmore", "Bowen Island", "Village of Belcarra", "City of Burnaby", "City of Richmond", "City of Victoria", "Provincial government", "City of Coquitlam", "Metro Vancouver", "City of Vancouver", "Abbotsford Police", "Central Saanich Police", "Delta Police", "Oak Bay Police", "Port Moody Police", "Saanich Police", "Surrey Police (SPS)", "Transit Police", "Vancouver Police", "Victoria Police", "Abbotsford school district", "Burnaby school district", "Chilliwack school district", "Coquitlam school district", "Delta school district", "Langley school district", "Mission school district", "New Westminster school district", "North Vancouver school district", "Richmond school district", "Ridge-Meadows school district", "Surrey school district", "Vancouver school district", "West Vancouver school district"];
+const agenciesList = ["BCIT", "Camosun College", "Capilano University", "Coast Mountain College", "College of the Rockies", "College of New Caledonia", "Douglas College", "Emily Carr University", "Justice Institute of B.C.", "Kwantlen Polytechnic University", "Langara College", "North Island College", "Northern Lights College", "Okanagan College", "Selkirk College", "Simon Fraser University (SFU)", "Thompson Rivers University", "University of B.C. (UBC)", "University of the Fraser Valley", "University of Northern B.C.", "University of Victoria", "Vancouver Community College (VCC)", "Vancouver Island University", "B.C. Assessment", "B.C. Council for International Education", "B.C. Energy Regulator", "B.C. Ferries", "B.C. Financial Services Authority", "B.C. Housing", "B.C. Hydro", "B.C. Infrastructure Benefits", "B.C. Liquor Distribution Branch", "B.C. Lottery Corporation", "B.C. Securities Commission", "B.C. Transit", "B.C. Utilities Commission", "Columbia Basin Trust", "Community Living B.C.", "Destination B.C.", "First Peoples' Cultural Council", "Forest Enhancement Society of B.C.", "Forestry Innovation Investment", "ICBC", "InBC Investment Corp.", "Infrastructure B.C.", "Insurance Council of B.C.", "Innovate B.C.", "Knowledge Network", "Legal Aid B.C.", "B.C. Pavilion Corporation", "Powerex", "PowerTech", "Royal B.C. Museum", "Skilled Trades B.C.", "Technical Safety B.C.", "Transportation Investment Corporation", "TransLink", "Worksafe B.C.", "Vancouver Coastal Health", "Fraser Health", "Interior Health", "Provincial Health Services Authority (PHSA)", "Northern Health", "Island Health", "City of North Vancouver", "City of Pitt Meadows", "District of West Vancouver", "District of North Vancouver", "District of Oak Bay", "City of Port Moody", "District of Saanich", "City of Surrey", "City of Delta", "Langley City", "Langley Township", "City of Maple Ridge", "City of New Westminster", "City of White Rock", "Village of Anmore", "Bowen Island", "Village of Belcarra", "City of Burnaby", "City of Richmond", "City of Victoria", "Provincial government", "City of Coquitlam", "Metro Vancouver", "City of Vancouver", "Abbotsford Police", "Central Saanich Police", "Delta Police", "Oak Bay Police", "Port Moody Police", "Saanich Police", "Surrey Police (SPS)", "Transit Police", "Vancouver Police", "Victoria Police", "Abbotsford school district", "Burnaby school district", "Chilliwack school district", "Coquitlam school district", "Delta school district", "Langley school district", "Mission school district", "New Westminster school district", "North Vancouver school district", "Richmond school district", "Ridge-Meadows school district", "Surrey school district", "Vancouver school district", "West Vancouver school district"];
 /* harmony default export */ var agencies = (agenciesList);
 // CONCATENATED MODULE: ./src/data/params.js
 const params = {
@@ -242,11 +242,11 @@ const params = {
   // below here probably won’t change 
   tableId: 'cloudtable',
   // DOM element for the table
-  cloudTableDomain: 'vs-postmedia-a.cloudtables.me',
+  // cloudTableDomain: 'vs-postmedia-a.cloudtables.me',
   // should probably have 3-4 servers in the pool...
-  serverPool: ['vs-postmedia-a.cloudtables.me'
-  // 'vs-postmedia-b.cloudtables.me'
-  ]
+  serverPool: [
+  // 'vs-postmedia-a.cloudtables.me',
+  'pssdb-postmedia.org']
 };
 /* harmony default export */ var data_params = (params);
 // EXTERNAL MODULE: ./src/css/normalize.css
@@ -300,8 +300,8 @@ var cloudtable = __webpack_require__(149);
 
 
 // VARS
-let server;
-let serverPool;
+let src_server;
+let src_serverPool;
 
 // JS FUNCTIONS
 const init = async () => {
@@ -309,10 +309,9 @@ const init = async () => {
   data_params.apiKey = "kcZqiHL7MiUCi1waLZYN1vkz";
 
   // assign server - HACK!!! DISABLE WHEN TRAFFIC DROPS
-  // serverPool = params.serverPool;
+  src_serverPool = data_params.serverPool;
   // server = await assignServer(serverPool);
-
-  server = data_params.cloudTableDomain;
+  src_server = data_params.serverPool[1];
 
   // create dynamic list of options for agency select tag
   createAgencyComboBox(agencies);
@@ -328,14 +327,13 @@ const init = async () => {
 // super-hack "load balancer"
 function assignServer(serverPool) {
   let server;
-  // const date = new Date();
-  // const current_min = date.getMinutes();
-
-  // if (current_min % 2 == 0) {
-  //     server = params.cloudTableDomain;
-  // } else {
-  //     server = params.cloudTableDomain_v2;
-  // }
+  const date = new Date();
+  const current_min = date.getMinutes();
+  if (current_min % 2 == 0) {
+    server = data_params.cloudTableDomain;
+  } else {
+    server = data_params.cloudTableDomain_v2;
+  }
   if (serverPool.length == 0) {
     // re-assign server pool & pull sever from pool
   } else {
@@ -380,19 +378,19 @@ async function loadCloudTable(agency) {
   let api = new CloudTablesApi_default.a(data_params.apiKey, {
     clientName: data_params.clientId,
     // Client's name - optional
-    domain: server,
+    domain: src_server,
     // CloudTables host
     // domain: params.cloudTableDomain,       // Your CloudTables host
     // secure: false,              // Disallow (true), or allow (false) self-signed certificates   
     // ssl: false,               // Disable https
     conditions: conditions // Use this to filter table
   });
-  console.log("https://".concat(server, "/io/loader/").concat(data_params.cloudTableId, "/table/d"));
+  console.log("https://".concat(src_server, "/io/loader/").concat(data_params.cloudTableId, "/table/d"));
   // get a cloudtables api token
   let token = await api.token();
   // build the script tag for the table
   let script = document.createElement('script');
-  script.src = "https://".concat(server, "/io/loader/").concat(data_params.cloudTableId, "/table/d");
+  script.src = "https://".concat(src_server, "/io/loader/").concat(data_params.cloudTableId, "/table/d");
   script.setAttribute('data-token', token);
   script.setAttribute('data-insert', data_params.tableId);
   script.setAttribute('data-clientId', data_params.clientId);
