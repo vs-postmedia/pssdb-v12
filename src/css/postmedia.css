@@ -27,6 +27,10 @@
 	margin: 0;
 }
 
+#app #note {
+	font-family: BentonSansCond-Ital, italic;
+	margin: 3px 0;
+}
 #app footer {
 	display: flex;
 	flex-wrap: wrap;
@@ -34,10 +38,12 @@
 
 #app footer > p {
 	flex: 1;
+	margin-top: 5px;
 }
 #app footer .note {
 	color: var(--grey02);
 	flex: 0 0 100%;
+	font-size: 1rem;
 	font-family: BentonSansCond-RegItalic, italic;
 }
 

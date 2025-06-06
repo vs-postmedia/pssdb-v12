@@ -30,10 +30,9 @@ const init = async () => {
     params.apiKey = process.env.API_KEY_CLOUDTABLES;
 
     // assign server - HACK!!! DISABLE WHEN TRAFFIC DROPS
-    // serverPool = params.serverPool;
+    serverPool = params.serverPool;
     // server = await assignServer(serverPool);
-
-    server = params.cloudTableDomain;
+    server = params.serverPool[0];
 
     // create dynamic list of options for agency select tag
     createAgencyComboBox(agenciesList);
@@ -49,14 +48,14 @@ const init = async () => {
 // super-hack "load balancer"
 function assignServer(serverPool) {
     let server;
-    // const date = new Date();
-    // const current_min = date.getMinutes();
+    const date = new Date();
+    const current_min = date.getMinutes();
 
-    // if (current_min % 2 == 0) {
-    //     server = params.cloudTableDomain;
-    // } else {
-    //     server = params.cloudTableDomain_v2;
-    // }
+    if (current_min % 2 == 0) {
+        server = params.cloudTableDomain;
+    } else {
+        server = params.cloudTableDomain_v2;
+    }
     if (serverPool.length == 0) {
         // re-assign server pool & pull sever from pool
     } else {

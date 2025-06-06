@@ -6,12 +6,14 @@ const params = {
 
     // below here probably won’t change 
     tableId: 'cloudtable', // DOM element for the table
-    cloudTableDomain: 'vs-postmedia-a.cloudtables.me',
+    // cloudTableDomain: 'vs-postmedia-a.cloudtables.me',
     // should probably have 3-4 servers in the pool...
     serverPool: [
-        'vs-postmedia-a.cloudtables.me'
-        // 'vs-postmedia-b.cloudtables.me'
+        'vs-postmedia-a.cloudtables.me',
+        // 'pssdb-postmedia.org'
     ] 
 };
 
 export default params;
+
+
